@@ -4,7 +4,6 @@ const terser = require('gulp-terser');
 const sass = require('gulp-sass')
 const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
-const gulpCopy = require('gulp-copy')
 const del = require('del')
 const babel = require('gulp-babel')
 const sourcemaps = require('gulp-sourcemaps')
