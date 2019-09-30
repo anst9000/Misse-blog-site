@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "date": "25 sep 2019",
+    "header": "Vilken tur jag hade",
+    "content": "lskfjalksdjfölaksjdfölakjdflkajsdlfkjasldkjflaskjdfö  lkasjdfljkasdlfkjasdlkfj akjsdflkajs ",
+    "image": "aslkfj.jpg"
+  },
+  {
+    "id": "2",
+    "date": "25 okt 2019",
+    "header": "Vilken tur du har",
+    "content": "lskfjalksdjfölak  lkasjdfljkasdlfkjasdlkfj",
+    "image": "asl.jpg"
+  },
+  {
+    "id": "3",
+    "date": "27 okt 2019",
+    "header": "Alla har tur idag",
+    "content": "Kalle kanin",
+    "image": "ddasl.jpg"
+  },
+  {
+    "id": "4",
+    "date": "31 okt 2019",
+    "header": "Idag är det höst ser du",
+    "content": "Kalle kanin och alla hans vänner bor i Sysselstad. Men ingen har fått en egen bananbil.",
+    "image": "ddasl.jpg"
+  }
+]
