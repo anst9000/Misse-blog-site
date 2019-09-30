@@ -4,6 +4,7 @@ const terser = require('gulp-terser');
 const sass = require('gulp-sass')
 const cleanCSS = require('gulp-clean-css')
 const imagemin = require('gulp-imagemin')
+const newer = require('gulp-newer');
 const del = require('del')
 const babel = require('gulp-babel')
 const sourcemaps = require('gulp-sourcemaps')
@@ -13,9 +14,9 @@ const files = {
   htmlPath: 'src/**/*.html',
   scssPath: 'src/scss/**/*.scss',
   jsPath: 'src/js/**/*.js',
-  resPath: 'src/res/**/*',
-  imgPath: ['src/**/*.{gif,png,jpg,jpeg,ico}'],
-  imgPubPath: 'pub'
+  resPath: './src/res/**/*',
+  imgPath: ['src/img/**/*.{gif,png,jpg,jpeg,ico}'],
+  imgPubPath: 'pub/img'
 }
 
 const imgTask = series(imgClean, imgMinify)
@@ -75,18 +76,10 @@ function scssTask() {
     .pipe(browserSync.stream())     // Make sure changes shows in browsers
 }
 
-// Clean and move resources directory
-const resTask = series(resClean, resCopy)
-
-// Clean resources
-function resClean() {
-  return del(files.imgPubPath);
-}
-
-// Task: move resources
 function resCopy() {
-  return src(files.resPath)
-    .pipe(dest('pub/res'))
+  return src('./src/res/**/*')
+    .pipe(newer('./pub/res'))
+    .pipe(dest('./pub/res'));
 }
 
 
@@ -103,12 +96,14 @@ function watchTask() {
     parallel(htmlTask, jsTask, scssTask)
   ).on('change', browserSync.reload)
   watch(files.imgPath, imgTask).on('change', browserSync.reload)
-  watch(files.resPath, resTask).on('change', browserSync.reload)
+  watch(files.resPath, resCopy).on('change', browserSync.reload)
 }
 
 exports.default = series(
-  series(imgTask, resTask),
-  series(jsTask, scssTask),
+  jsTask,
+  scssTask,
   htmlTask,
+  resCopy,
+  imgTask,
   watchTask
 )
