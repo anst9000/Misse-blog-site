@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/ico" href="favicon.png" />
+  <link rel="stylesheet" href="style.css">
+
+  <title>Misseblogg API</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="containerAll">
+
+    <div class="starter-template">
+      <div class="nav text-center">
+        <h1>Misseblogg REST API</h1>
+      </div>
+
+
+      <div class="fetch">
+        <div class="col" id="all-blogs">
+          <h3>Se alla bloggar</h3>
+          <button class="btn btn-primary" id="allBlog">Alla bloggar</button>
+          <div class="blogs all" id="blog-data">
+          </div>
+        </div>
+
+        <div class="col" id="modify-poems">
+          <h3>Lägg till en dikt</h3>
+          <div class="create">
+            <button class="btn btn-primary mb-2" id="createPoem">Ny dikt</button>
+            <form id="createPoemForm" name="createForm">
+              <input type="text" placeholder="Rubrik..." id="poemCreateTitle">
+              <textarea type="text" rows="10" placeholder="Hela dikten..." id="poemCreateBody"></textarea>
+              <input type="text" placeholder="Ämne..." id="poemCreateTopic">
+              <input type="text" placeholder="Ev. bild..." id="poemCreateImage">
+              <input type="text" placeholder="Författare..." id="poemCreateAuthor">
+            </form>
+          </div>
+          <hr>
+
+          <div class="delete">
+            <button class="btn btn-primary mb-2" id="deletePoem">Ta bort dikt</button>
+            <div class="">
+              <input type="text" placeholder="Diktens ID..." id="poemDeleteId">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col" id="crud-blog">
+          <h3>Skapa - Uppdatera - Ta bort</h3>
+          <div class="blogs crud" id="blog-data-cre-upd-del">
+            <div class="create">
+              <button class="btn btn-primary mb-2" id="createBlog">Skapa</button>
+              <form id="createForm" name="createForm">
+                <input type="text" placeholder="Rubrik..." id="blogCreateHeader">
+                <textarea type="text" rows="4" placeholder="Bloggtext..." id="blogCreateContent"></textarea>
+                <input type="text" placeholder="Bild..." id="blogCreateImage">
+                <input type="text" placeholder="Vem skrev..." id="blogCreateAuthor">
+              </form>
+            </div>
+
+            <hr>
+
+            <div class="update">
+              <button class="btn btn-primary mb-2 " id="updateBlog">Uppdatera</button>
+              <form id="updateForm" name="updateForm">
+                <input type="text" placeholder="Blogg ID..." id="blogUpdateId">
+                <input type="text" placeholder="Rubrik..." id="blogUpdateHeader">
+                <textarea type="text" rows="4" placeholder="Bloggtext..." id="blogUpdateContent"></textarea>
+                <input type="text" placeholder="Bild..." id="blogUpdateImage">
+                <input type="text" placeholder="Vem skrev..." id="blogUpdateAuthor">
+              </form>
+            </div>
+
+            <hr>
+
+            <div class="delete">
+              <button class="btn btn-primary mb-2" id="deleteBlog">Ta bort</button>
+              <div class="">
+                <input type="text" placeholder="Blogg ID..." id="blogDeleteId">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div><!-- /.container -->
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+  <script src="fetch.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

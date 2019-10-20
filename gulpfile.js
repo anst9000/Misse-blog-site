@@ -76,12 +76,26 @@ function scssTask() {
     .pipe(browserSync.stream())     // Make sure changes shows in browsers
 }
 
+// Task: Copy files from src folder
 function resCopy() {
   return src('./src/res/**/*')
     .pipe(newer('./pub/res'))
     .pipe(dest('./pub/res'));
 }
 
+// Task: Copy files from includes folder
+function includesCopy() {
+  return src('./src/includes/**/*')
+    .pipe(newer('./pub/includes'))
+    .pipe(dest('./pub/includes'));
+}
+
+// Task: Copy PHP-files from src folder
+function phpCopy() {
+  return src('./src/*.php')
+    .pipe(newer('./pub'))
+    .pipe(dest('./pub'));
+}
 
 // Task: Watcher
 function watchTask() {
@@ -104,6 +118,8 @@ exports.default = series(
   scssTask,
   htmlTask,
   resCopy,
+  includesCopy,
+  phpCopy,
   imgTask,
   watchTask
 )
